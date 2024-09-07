@@ -1,0 +1,216 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>基于C++的EasyX开发的简单割草小游戏 的笔记 | Tang_7777777 的博客</title><meta name="author" content="Tang_7777777"><meta name="copyright" content="Tang_7777777"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Q&amp;A为什么选择C++进行开发？ &amp;#8195因为C++是我个人最熟悉的编程语言，在此之前我对面向对象的开发项目经验几乎为0，所以我认为我需要使用我较为熟悉的语言 进行开发学习，累积经验，而不至于在简单的语法问题上浪费时间。其次C++上对于小型项目开发相对简单容易上手，这也是选择C++ 的重要原因之一。   笔记  一些相对陌生的类型  DWORD类型 &amp;#8195就是32bit的unsi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于C++的EasyX开发的简单割草小游戏 的笔记">
+<meta property="og:url" content="http://tang7777777.com/2024/09/04/GameMadeDaily/index.html">
+<meta property="og:site_name" content="Tang_7777777 的博客">
+<meta property="og:description" content="Q&amp;A为什么选择C++进行开发？ &amp;#8195因为C++是我个人最熟悉的编程语言，在此之前我对面向对象的开发项目经验几乎为0，所以我认为我需要使用我较为熟悉的语言 进行开发学习，累积经验，而不至于在简单的语法问题上浪费时间。其次C++上对于小型项目开发相对简单容易上手，这也是选择C++ 的重要原因之一。   笔记  一些相对陌生的类型  DWORD类型 &amp;#8195就是32bit的unsi">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2024-09-04T14:08:46.000Z">
+<meta property="article:modified_time" content="2024-09-07T12:41:06.531Z">
+<meta property="article:author" content="Tang_7777777">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://tang7777777.com/2024/09/04/GameMadeDaily/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '基于C++的EasyX开发的简单割草小游戏 的笔记',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-09-07 20:41:06'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Tang_7777777 的博客"><span class="site-name">Tang_7777777 的博客</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">基于C++的EasyX开发的简单割草小游戏 的笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-09-04T14:08:46.000Z" title="发表于 2024-09-04 22:08:46">2024-09-04</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-09-07T12:41:06.531Z" title="更新于 2024-09-07 20:41:06">2024-09-07</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="基于C++的EasyX开发的简单割草小游戏 的笔记"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="Q-A"><a href="#Q-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h2><h3 id="为什么选择C-进行开发？"><a href="#为什么选择C-进行开发？" class="headerlink" title="为什么选择C++进行开发？"></a>为什么选择C++进行开发？</h3><br>
+&#8195因为C++是我个人最熟悉的编程语言，在此之前我对面向对象的开发项目经验几乎为0，所以我认为我需要使用我较为熟悉的语言
+进行开发学习，累积经验，而不至于在简单的语法问题上浪费时间。其次C++上对于小型项目开发相对简单容易上手，这也是选择C++
+的重要原因之一。
+<br>
+
+<h2 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h2><br>
+
+<h3 id="一些相对陌生的类型"><a href="#一些相对陌生的类型" class="headerlink" title="一些相对陌生的类型"></a>一些相对陌生的类型</h3><br>
+
+<h4 id="DWORD类型"><a href="#DWORD类型" class="headerlink" title="DWORD类型"></a>DWORD类型</h4><br>
+&#8195就是32bit的unsigned  long无符号长整型，DWORD是双字类型 ，4个字节,API函数中有很多参数和返回值是DWORD的。
+其实DWORD类型可以直接被int类型所替代，在开发的最开始我的VS2022似乎不支持DWORD类型的使用，一直报错，查了很久的资料才发现可以直接
+使用int或者long long替代.
+<br>
+
+<h5 id="TCHAR类型"><a href="#TCHAR类型" class="headerlink" title="TCHAR类型"></a>TCHAR类型</h5><br>
+&#8195就是当你的字符设置为什么就是什么 例如：程序编译为 ANSI， TCHAR 就是相当于 CHAR ，当程序编译为 UNICODE， TCHAR 就相当于 WCHAR
+其实就是一种相对万能的写法，关于字符类型.
+<br>
+
+<h3 id="EasyX-中的操作元素"><a href="#EasyX-中的操作元素" class="headerlink" title="EasyX 中的操作元素"></a>EasyX 中的操作元素</h3><br>
+
+<h4 id="initgraph-绘制窗口"><a href="#initgraph-绘制窗口" class="headerlink" title="initgraph 绘制窗口"></a>initgraph 绘制窗口</h4><br>
+&#8195使用方法例如 创建绘图窗口，大小为 640x480 像素，initgraph(640, 480)，即可。
+
+<h4 id="IMAGE保存图像的对象"><a href="#IMAGE保存图像的对象" class="headerlink" title="IMAGE	保存图像的对象"></a>IMAGE	保存图像的对象</h4><br>
+&#8195使用方法直接IMAGE后+名称即可
+
+<h4 id="Animation-DrawImage-在窗口上绘制图像"><a href="#Animation-DrawImage-在窗口上绘制图像" class="headerlink" title="Animation::DrawImage 在窗口上绘制图像"></a>Animation::DrawImage 在窗口上绘制图像</h4><br>
+&#8195使用方法：例如在开发这个小游戏中这行代码 Animation::DrawImage(shadowPosX, shadowPosY, &mImgShadow); 的目的是在指定的位置绘制一
+个影子图像。影子通常用于为图像或对象增加深度感，使其看起来更立体。shadowPosX 和 shadowPosY 是绘制图像的坐标，表示影子图像在屏幕上的位置。
+&mImgShadow 是影子图像的引用。
+
+<h4 id="loadimage-加载图片"><a href="#loadimage-加载图片" class="headerlink" title="loadimage 加载图片"></a>loadimage 加载图片</h4><br>
+&#8195使用方法：例如loadimage(&mImgShadow, _T("img/shadow_player.png")); 这段代码中&mImgShadow 表示将 mImgShadow 变量的地址传递给
+loadimage 函数，这样函数可以直接修改 mImgShadow 的内容。_T("img/shadow_player.png") 是一个字符串，表示要加载的图像文件的路径。
+_T 宏通常用于支持多种字符集（如 ANSI 和 Unicode），确保代码在不同的字符集下都能正常工作。
+
+<h4 id="AlphaBlend在指定位置绘制带有透明度的图像-去除图片黑框"><a href="#AlphaBlend在指定位置绘制带有透明度的图像-去除图片黑框" class="headerlink" title="AlphaBlend在指定位置绘制带有透明度的图像(去除图片黑框)"></a>AlphaBlend在指定位置绘制带有透明度的图像(去除图片黑框)</h4><br>
+&#8195使用方法：这个函数相对比较复杂，这里仅介绍这个游戏中用到的例如AlphaBlend(GetImageHDC(NULL), x, y, w, h, 
+GetImageHDC(img), 0, 0, w, h, { AC_SRC_OVER, 0, 255, AC_SRC_ALPHA });其中GetImageHDC(NULL):
+这个函数调用获取一个设备上下文（HDC），用于绘制图像。NULL 表示绘制到屏幕的设备上下文。x, y:这两个参数指定了图像在目标设备上下
+文中的绘制位置（左上角的坐标）。w, h:这两个参数表示要绘制的图像的宽度和高度，分别由 img->getwidth() 和 img->getheight() 获取。
+GetImageHDC(img):这个函数调用获取与 img 相关联的设备上下w, h:这两个参数再次表示要从源图像中读取的宽度和高度，通常与目标图像的
+宽度和高度相同。文（HDC），用于从该图像中读取像素数据。0, 0:这两个参数指定了从源图像（即 img）中开始读取像素的起始位置（左上角的坐标）。
+{ AC_SRC_OVER, 0, 255, AC_SRC_ALPHA }:这是一个结构体，包含了透明度和混合模式的信息：AC_SRC_OVER：表示使用源图像的像素覆盖目标图像的像素。
+0：表示没有偏移量。255：表示完全不透明的像素（范围从 0 到 255，0 为完全透明，255 为完全不透明）。AC_SRC_ALPHA：表示源图像使用 alpha 通道来
+定义透明度。
+
+<h3 id="面向对象编程-C"><a href="#面向对象编程-C" class="headerlink" title="面向对象编程(C++)"></a>面向对象编程(C++)</h3><br>
+&#8195只要是开发一定规模的项目，无论大小几乎都得用到面向对象的思想，不然代码就成史山了，难以管理和修改bug，在这里我就不赘述面向对象的概念了
+很多人都写了关于C++面向对象的博客借鉴即可 ，这个游戏开发中主要用到的概念是封装。
+
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/cui_yonghua/article/details/131376206?ops_request_misc=%257B%2522request%255Fid%2522%253A%25227096A67C-DC42-4611-8F24-A3CECEDC28E6%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=7096A67C-DC42-4611-8F24-A3CECEDC28E6&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_click~default-5-131376206-null-null.142%5Ev100%5Epc_search_result_base7&utm_term=%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1&spm=1018.2226.3001.4187">面向对象博客链接</a></p>
+<h3 id="享元模式"><a href="#享元模式" class="headerlink" title="享元模式"></a>享元模式</h3><br>
+&#8195享元模式是一种结构型的设计模式。它的主要目的是通过共享对象来减少系统种对象的数量，其本质就是缓存共享对象，降低内存消耗。 享元模式将需要重复使用的对象分为两个部分：内部状态和外部状态。
+内部状态是不会变化的，可以被多个对象共享，而外部状态会随着对象的使用而改变。比如，连接池中的连接对象，保存在连接对象中的用户名、密码、连接URL等信息，在创建对象的时候就设置好了，不会随环境的改变而改变，这些为内部状态。而当每个连接要被回收利用时，我们需要将它标记为可用状态，这些为外部状态。
+说人话就是一种优化，需要加载的资源单独列为一个类或者结构体，需要时再在不同的位置和时间反复调用本体的资源即可，这样可以节约大量的硬盘资源。
+
+<h4 id="代码以及库"><a href="#代码以及库" class="headerlink" title="代码以及库"></a>代码以及库</h4><p>主要内容基本都在代码中，基本都写了注释，结合注释相对比较好理解。<br><a target="_blank" rel="noopener" href="https://github.com/Tang77777777/EzGame">[github网址]</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://tang7777777.com">Tang_7777777</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://tang7777777.com/2024/09/04/GameMadeDaily/">http://tang7777777.com/2024/09/04/GameMadeDaily/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://tang7777777.com" target="_blank">Tang_7777777 的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2024/08/31/disan/" title="关于齐泽克—— 从“做自己”到大他者的凝视"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">关于齐泽克—— 从“做自己”到大他者的凝视</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Tang_7777777</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Tang77777777"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">无事发生</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Q-A"><span class="toc-number">1.</span> <span class="toc-text">Q&amp;A</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%80%89%E6%8B%A9C-%E8%BF%9B%E8%A1%8C%E5%BC%80%E5%8F%91%EF%BC%9F"><span class="toc-number">1.1.</span> <span class="toc-text">为什么选择C++进行开发？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%94%E8%AE%B0"><span class="toc-number">2.</span> <span class="toc-text">笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E7%9B%B8%E5%AF%B9%E9%99%8C%E7%94%9F%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.1.</span> <span class="toc-text">一些相对陌生的类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#DWORD%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.1.1.</span> <span class="toc-text">DWORD类型</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#TCHAR%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.1.1.1.</span> <span class="toc-text">TCHAR类型</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EasyX-%E4%B8%AD%E7%9A%84%E6%93%8D%E4%BD%9C%E5%85%83%E7%B4%A0"><span class="toc-number">2.2.</span> <span class="toc-text">EasyX 中的操作元素</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#initgraph-%E7%BB%98%E5%88%B6%E7%AA%97%E5%8F%A3"><span class="toc-number">2.2.1.</span> <span class="toc-text">initgraph 绘制窗口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#IMAGE%E4%BF%9D%E5%AD%98%E5%9B%BE%E5%83%8F%E7%9A%84%E5%AF%B9%E8%B1%A1"><span class="toc-number">2.2.2.</span> <span class="toc-text">IMAGE	保存图像的对象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Animation-DrawImage-%E5%9C%A8%E7%AA%97%E5%8F%A3%E4%B8%8A%E7%BB%98%E5%88%B6%E5%9B%BE%E5%83%8F"><span class="toc-number">2.2.3.</span> <span class="toc-text">Animation::DrawImage 在窗口上绘制图像</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#loadimage-%E5%8A%A0%E8%BD%BD%E5%9B%BE%E7%89%87"><span class="toc-number">2.2.4.</span> <span class="toc-text">loadimage 加载图片</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#AlphaBlend%E5%9C%A8%E6%8C%87%E5%AE%9A%E4%BD%8D%E7%BD%AE%E7%BB%98%E5%88%B6%E5%B8%A6%E6%9C%89%E9%80%8F%E6%98%8E%E5%BA%A6%E7%9A%84%E5%9B%BE%E5%83%8F-%E5%8E%BB%E9%99%A4%E5%9B%BE%E7%89%87%E9%BB%91%E6%A1%86"><span class="toc-number">2.2.5.</span> <span class="toc-text">AlphaBlend在指定位置绘制带有透明度的图像(去除图片黑框)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B-C"><span class="toc-number">2.3.</span> <span class="toc-text">面向对象编程(C++)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F"><span class="toc-number">2.4.</span> <span class="toc-text">享元模式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E4%BB%A5%E5%8F%8A%E5%BA%93"><span class="toc-number">2.4.1.</span> <span class="toc-text">代码以及库</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/04/GameMadeDaily/" title="基于C++的EasyX开发的简单割草小游戏 的笔记">基于C++的EasyX开发的简单割草小游戏 的笔记</a><time datetime="2024-09-04T14:08:46.000Z" title="发表于 2024-09-04 22:08:46">2024-09-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/08/31/disan/" title="关于齐泽克—— 从“做自己”到大他者的凝视">关于齐泽克—— 从“做自己”到大他者的凝视</a><time datetime="2024-08-31T13:51:15.000Z" title="发表于 2024-08-31 21:51:15">2024-08-31</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/08/29/studydaliy/" title="408——数据结构学习日记——顺序表">408——数据结构学习日记——顺序表</a><time datetime="2024-08-29T14:48:59.000Z" title="发表于 2024-08-29 22:48:59">2024-08-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/08/28/dier/" title="齐拉黑——其一 从实在界到现实">齐拉黑——其一 从实在界到现实</a><time datetime="2024-08-28T07:28:10.000Z" title="发表于 2024-08-28 15:28:10">2024-08-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/08/27/post/" title="关于叔本华">关于叔本华</a><time datetime="2024-08-27T11:39:06.000Z" title="发表于 2024-08-27 19:39:06">2024-08-27</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2024 By Tang_7777777</div><div class="footer_custom_text">欢迎来到<a href= "https://tang7777777.com/">Tang_7777777的博客</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/click-show-text.min.js" data-mobile="false" data-text="富强,民主,文明,和谐,自由,平等,公正,法治,爱国,敬业,诚信,友善" data-fontsize="15px" data-random="true" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
